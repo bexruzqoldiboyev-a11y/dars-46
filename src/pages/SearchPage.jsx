@@ -12,7 +12,7 @@ const ALIASES = {
   "qo'rqinchli": 'dahshat', 'dahshat': 'dahshat', 'horror': 'dahshat',
   'harakat': 'harakat', 'action': 'harakat', 'jangari': 'harakat',
   'drama': 'drama', 'triller': 'triller',
-  'sarguzasht': 'sarguzasht', 'sarguzasht': 'sarguzasht',
+  'sarguzasht': 'sarguzasht',
   'romantik': 'romantika', 'romantika': 'romantika', 'sevgi': 'romantika',
   'kriminal': 'kriminal', 'jinoyat': 'kriminal',
   'animatsiya': 'animatsiya', 'multfilm': 'animatsiya', 'multik': 'animatsiya',
