@@ -1,10 +1,13 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { FavoritesProvider } from './context/FavoritesContext';
 import AuthPage from './pages/AuthPage';
 import HomePage from './pages/HomePage';
 import MoviePage from './pages/MoviePage';
 import WatchPage from './pages/WatchPage';
 import SearchPage from './pages/SearchPage';
+import FavoritesPage from './pages/FavoritesPage';
+import ProfilePage from './pages/ProfilePage';
 
 function ProtectedRoute({ children }) {
   const { user } = useAuth();
@@ -20,6 +23,8 @@ function AppRoutes() {
       <Route path="/movie/:id" element={<ProtectedRoute><MoviePage /></ProtectedRoute>} />
       <Route path="/watch/:id" element={<ProtectedRoute><WatchPage /></ProtectedRoute>} />
       <Route path="/search" element={<ProtectedRoute><SearchPage /></ProtectedRoute>} />
+      <Route path="/favorites" element={<ProtectedRoute><FavoritesPage /></ProtectedRoute>} />
+      <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
@@ -28,7 +33,9 @@ function AppRoutes() {
 export default function App() {
   return (
     <AuthProvider>
-      <AppRoutes />
+      <FavoritesProvider>
+        <AppRoutes />
+      </FavoritesProvider>
     </AuthProvider>
   );
 }
