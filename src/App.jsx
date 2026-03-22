@@ -1,6 +1,9 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { FavoritesProvider } from './context/FavoritesContext';
+import { ThemeProvider } from './context/ThemeContext';
+import { NotificationProvider } from './context/NotificationContext';
+import PWAInstall from './components/PWAInstall';
 import AuthPage from './pages/AuthPage';
 import HomePage from './pages/HomePage';
 import MoviePage from './pages/MoviePage';
@@ -32,10 +35,15 @@ function AppRoutes() {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <FavoritesProvider>
-        <AppRoutes />
-      </FavoritesProvider>
-    </AuthProvider>
+    <ThemeProvider>
+      <NotificationProvider>
+        <AuthProvider>
+          <FavoritesProvider>
+            <AppRoutes />
+            <PWAInstall />
+          </FavoritesProvider>
+        </AuthProvider>
+      </NotificationProvider>
+    </ThemeProvider>
   );
 }
